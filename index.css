@@ -1,0 +1,279 @@
+/* Quitamos los margenes y los paddings para poder dar el
+formato nosotros sin que nos sume los margenes cargados
+ por defecto. */
+:root {
+    --miNaranja: rgba(255, 166, 0, 0.921);
+    --miAmarillo: #538590;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* aqui le dasmos el 100 % de altura de la pantalla para
+poder posicionar los elementos en el centro. */
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 15rem;
+    height: 32.5rem;
+    border: 2px solid #333;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 1rem;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+    overflow: hidden;
+}
+
+.container.day {
+    background-image: url("./imagenes/320x480_sunny_day.jpg ");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.container.night {
+    background-image: url("./imagenes/night_moon.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.inputTemp {
+    flex: 0.4;
+    margin: 1rem auto;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.search_submit {
+    display: flex;
+}
+
+.search_submit>button {
+    visibility: hidden;
+}
+
+.search {
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    border: none;
+}
+
+.search:focus {
+    outline: none;
+}
+
+.inputTemp_number {
+    display: flex;
+    align-items: center;
+}
+
+.inputTemp_Celsius {
+    text-align: center;
+    color: var(--miAmarillo);
+    font-weight: bolder;
+    font-size: 4rem;
+}
+
+.inputTemp_symbol {
+    color: var(--miAmarillo);
+    font-size: 3rem;
+}
+
+.location {
+    flex: 0.5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.location_date {
+    margin: 1.5rem;
+}
+
+.inputTemp_description,
+.location_city {
+    font-size: 1.3rem;
+    font-weight: bolder;
+    color: #333;
+}
+
+.container.night .inputTemp_description {
+    color: var(--miAmarillo);
+}
+
+.container.night .location_city {
+    color: var(--miAmarillo);
+}
+
+.container.night .location_date {
+    color: var(--miAmarillo);
+    font-weight: bolder;
+}
+
+.weather {
+    flex: 0.1;
+    border-top: 2px solid #333;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.weather_temp_min>span {
+    font-size: 1.4rem;
+    color: blue;
+
+}
+
+.weather_temp_max>span {
+    font-size: 1.4rem;
+    color: tomato;
+}
+
+/* Animacion mariquita volando dia */
+.container.day .ladybug {
+    width: 20px;
+    /* Ancho de la mariquita */
+    height: 12px;
+    /* Altura de la mariquita */
+    background-color: #FF4500;
+    /* Color de la mariquita (naranja) */
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    /* Forma de la mariquita */
+    position: relative;
+    /* Posición absoluta para animarla */
+    top: 80%;
+    /* Posición vertical inicial */
+    left: -20px;
+    /* Posición horizontal inicial (fuera de la pantalla) */
+    animation: fly 16s linear infinite;
+    /* Animación de vuelo */
+}
+
+@keyframes fly {
+    0% {
+        transform: translate(0, 0) rotate(20deg);
+        /* Posición y rotación inicial */
+    }
+
+    25% {
+        transform: translate(8rem, 1.5rem) rotate(-20deg);
+        /* Posición y rotación intermedia */
+    }
+
+    50% {
+        transform: translate(11rem, 2.6rem) rotate(20deg);
+        /* Posición y rotación intermedia */
+    }
+
+    75% {
+        transform: translate(14rem, 2.0rem) rotate(-20deg);
+        /* Posición y rotación intermedia */
+    }
+
+    100% {
+        transform: translate(20rem, 1.2rem) rotate(20deg);
+        /* Posición y rotación final */
+    }
+}
+
+/* Animacion luciernaga volando noche */
+
+.container.night .firefly {
+    width: 5px;
+    /* Ancho de la luciérnaga */
+    height: 5px;
+    /* Altura de la luciérnaga */
+    background-color: #fff;
+    /* Color de la luciérnaga (blanco) */
+    border-radius: 50%;
+    /* Forma redonda */
+    position: relative;
+    /* Posición absoluta para animarla */
+    top: 85%;
+    /* Posición vertical inicial */
+    left: -10px;
+    /* Posición horizontal inicial (fuera de la pantalla) */
+    animation: fly 13s linear infinite;
+    /* Animación de vuelo */
+}
+
+
+@keyframes fly {
+    0% {
+        transform: translate(0, 0);
+        /* Posición inicial */
+        opacity: 0.9;
+        /* Opacidad inicial */
+    }
+
+    25% {
+        transform: translate(5rem, 1.5rem);
+        /* Posición intermedia */
+        opacity: 0.6;
+        /* Opacidad intermedia */
+    }
+
+    50% {
+        transform: translate(7rem, 2.6rem);
+        /* Posición intermedia */
+        opacity: 0.8;
+        /* Opacidad intermedia */
+    }
+
+    75% {
+        transform: translate(10rem, 2.0rem);
+        /* Posición intermedia */
+        opacity: 0.5;
+        /* Opacidad intermedia */
+    }
+
+    100% {
+        transform: translate(15rem, 1.2rem);
+        /* Posición final */
+        opacity: 0.8;
+        /* Opacidad final */
+    }
+}
+
+
+/* Estilos generales para la luciérnaga *//* 
+.firefly {
+    width: 10px;
+    height: 10px;
+    background-color: #fff;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: -10px;
+    animation: fly 5s linear infinite;
+}
+ */
+
+
+
+@media screen and (min-width: 768px) {
+
+    /* Estilos para pantallas más grandes que 768px */
+    .container {
+        width: 80rem;
+        /* Ajusta el ancho para pantallas más grandes */
+        height: 85rem;
+        /* Ajusta la altura para pantallas más grandes */
+    }
+}
