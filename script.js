@@ -15,9 +15,21 @@ let max = document.getElementById('max');
 
 //Declarar funciones secundarias
 
-const displayBackgroundImage = (data) => {
+const displayBackgroundImage = (obj) => {
+    console.log(obj.dt);
+    // extraer y dar formato a la fecha
+    let dateSpanish = new Date(obj.dt*1000).toLocaleString("es-ES",{
+        timeStyle : "short",
+        dateStyle : "long"
+    });
+    console.log(dateSpanish);
 
-}
+    //extraer la hora
+    const dayHour = new Date(obj.dt*1000).getHours();
+    console.log(dayHour);
+};
+
+
 
 const displayData = (data) => {
 
@@ -29,29 +41,31 @@ const getWeatherData = async (city) => {
 
     //Llamada a la API y obtener datos
     //Fetch nos permite hacer peticiones HTTP
-    const res = await fetch(`https://open-weather13.p.rapidapi.com/city/${city}/ES`,{
+    const res = await fetch(`https://open-weather13.p.rapidapi.com/city/${city}/ES`, {
         headers: {
             'X-RapidAPI-Key': '3d561cfc05msh604560a7aa6e29dp1283e8jsnb38d7646aebe',
-		    'X-RapidAPI-Host': 'open-weather13.p.rapidapi.com'
+            'X-RapidAPI-Host': 'open-weather13.p.rapidapi.com'
         }
-    }
-
-
-);
+    }   );
     const data = await res.json();
+
     console.log(data);
     //Cambiar fondo pantalla de noche o de diá
-    // displayBackgroundImage(data);
+    displayBackgroundImage(data);
     //Mostrar datos en el DOM
     // displayData(data);
-
 }
 
+
+search_form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    getWeatherData(search_input.value);
+})
 
 //Al cargar página nos cargue una localización predeterminada
 
 window.onload = () => {
-    getWeatherData('vitoria-gasteiz');
+    getWeatherData(search_input.value);
 
 }
 
