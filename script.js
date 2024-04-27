@@ -1,7 +1,6 @@
 // API- Open weather Map
 
 //Capturar elementos del DOM para usarlos en el script
-
 let container = document.getElementById('container');
 let search_form = document.getElementById('search_submit');
 let search_input = document.getElementById('search_input');
@@ -39,15 +38,30 @@ const displayBackgroundImage = (obj) => {
 
 //Capturo los datos del objeto del API y los muestro en el DOM
 const displayData = (obj) => {
-    temperatureDegrees.textContent = Math.floor(obj.main.temp);
+    // Obtener la temperatura en grados Fahrenheit desde la API
+    var tempFahrenheit = obj.main.temp;
+    // Convertir la temperatura de Fahrenheit a Celsius
+    var tempCelsius = (tempFahrenheit - 32) * (5 / 9);
+    // Actualizar el contenido de temperatureDegrees con la temperatura
+    // Convertida en Celsius redondeaando al entero mas cercano por abajo
+    temperatureDegrees.textContent = Math.floor(tempCelsius);
+    //============================================
     timeZone.textContent = obj.name;
+    //============================================
     const icon = obj.weather[0].icon;
+    //============================================
     weatherIcon.innerHTML = `<img src='icons/${icon}.png'> </img>`;
-    min.textContent = Math.floor(obj.main.temp_min);
-    max.textContent = Math.floor(obj.main.temp_max);
+    //============================================
+    var tempFahrenheitMin = obj.main.temp_min;
+    var tempCelsiusMin = (tempFahrenheitMin - 32) * (5 / 9);
+    min.textContent = Math.floor(tempCelsiusMin);
+
+    var tempFahrenheitMax = obj.main.temp_max;
+    var tempCelsiusMax = (tempFahrenheitMax - 32) * (5 / 9);
+    max.textContent = Math.floor(tempCelsiusMax);
+    //============================================
     temperatureDescription.textContent = obj.weather[0].description;
 }
-
 //Declarar getWeatherData como una función (principal)
 
 const getWeatherData = async (city) => {
@@ -76,6 +90,3 @@ search_form.addEventListener('submit', (e) => {
 window.onload = () => {
     getWeatherData(search_input.value);
 }
-
-
-
