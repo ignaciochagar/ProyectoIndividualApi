@@ -90,3 +90,29 @@ search_form.addEventListener('submit', (e) => {
 window.onload = () => {
     getWeatherData(search_input.value);
 }
+//LOCAL STORAGE
+// Capturar el elemento del botón de favoritos
+var favoriteButton = document.getElementById('favoriteButton');
+
+// Agregar un listener de eventos al botón de favoritos
+favoriteButton.addEventListener('click', function() {
+    // Obtener la ciudad ingresada por el usuario desde el input de búsqueda
+    var city = search_input.value;
+    
+    // Obtener la lista de favoritos del Local Storage o inicializarla si no existe
+    var favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    
+    // Agregar la ciudad actual a la lista de favoritos si aún no está presente
+    if (!favorites.includes(city)) {
+        favorites.push(city);
+        
+        // Actualizar los favoritos en el Local Storage
+        localStorage.setItem('favorites', JSON.stringify(favorites));
+        
+        // Notificar al usuario que la ciudad ha sido agregada a favoritos
+        alert('Ciudad agregada a Favoritos');
+    } else {
+        // Notificar al usuario que la ciudad ya está en favoritos
+        alert('Esta ciudad ya está en tus Favoritos');
+    }
+});
