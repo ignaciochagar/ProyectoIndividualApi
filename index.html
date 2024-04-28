@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <!-- como metodo usaremos las clases para el CSS y los IDs para el script de JS -->
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,31 +11,33 @@
 </head>
 
 <body>
-    <div class="container night" id="container">
+    <div class="container " id="container">
+        <button type="button" class="favorite" id="favoriteButton">Agregar a Favoritos</button>
+
         <div class="ladybug"></div>
         <div class="firefly"></div>
-                <div class="inputTemp">
+        <div class="inputTemp">
             <form class="search_submit" id="search_submit">
                 <input type="text" class="search" id="search_input" placeholder="Ingresa tu localizacion...">
                 <button type="submit" class="submit" id="submit">Submit</button>
             </form>
             <div class="inputTemp_number">
-                <div class="inputTemp_Celsius" id="degreeNumber">15</div>
+                <div class="inputTemp_Celsius" id="degreeNumber"></div>
                 <div class="inputTemp_symbol">°C</div>
             </div>
             <div id="weatherIcon"></div>
-            <div class="inputTemp_description" id="description">Nuboso</div>
+            <div class="inputTemp_description" id="description"></div>
         </div>
         <div class="location">
-            <div class="location_city" id="timezone">London</div>
-            <div class="location_date" id="date">Fecha</div>
+            <div class="location_city" id="timezone"></div>
+            <div class="location_date" id="date"></div>
         </div>
         <div class="weather">
-            <div class="weather_temp_min" ><small>min</small><span id="min">12</span> ºC</div>
-            <div class="weather_temp_max" ><small>max</small><span id="max">18</span> ºC</div>
+            <div class="weather_temp_min"><small>min</small><span id="min">12</span> ºC</div>
+            <div class="weather_temp_max"><small>max</small><span id="max">18</span> ºC</div>
         </div>
     </div>
-<script src="index.js"></script><!--  Linkamos script de Js -->
+    <script src="script.js"></script><!--  Linkamos script de Js -->
 </body>
 
 </html>

@@ -252,28 +252,37 @@ body {
 }
 
 
-/* Estilos generales para la luciérnaga *//* 
-.firefly {
-    width: 10px;
-    height: 10px;
-    background-color: #fff;
-    border-radius: 50%;
-    position: absolute;
-    top: 50%;
-    left: -10px;
-    animation: fly 5s linear infinite;
-}
- */
-
-
-
 @media screen and (min-width: 768px) {
 
-    /* Estilos para pantallas más grandes que 768px */
+    /* Estilos para pantallas más grandes que 768px tablets como mucho */
     .container {
         width: 80rem;
         /* Ajusta el ancho para pantallas más grandes */
         height: 85rem;
         /* Ajusta la altura para pantallas más grandes */
     }
+}
+/*Favoritos*/
+.favorite {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+
+/* Estilos para el botón en forma de corazón */
+.favorite::before {
+    content: '\2661'; /* Código Unicode para un corazón abierto */
+    font-size: 24px; /* Tamaño del corazón */
+    color: red; /* Color del corazón */
+}
+
+/* Estilos para cambiar el corazón a color rojo cuando se hace hover */
+.favorite:hover::before {
+    color: darkred; /* Color del corazón al hacer hover */
+}
+
+/* Estilos para cambiar el corazón a color rojo cuando está activo (clicado) */
+.favorite:active::before {
+    color: darkred; /* Color del corazón cuando está activo */
 }
