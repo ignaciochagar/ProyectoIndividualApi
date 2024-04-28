@@ -17,7 +17,7 @@ si es de día o de noche.
 ## Cómo usar
 
 1. Ingresa el nombre de la ciudad en el campo de búsqueda.
-2. Haz clic en el botón "Submit" o presiona Enter.
+2. Haz clic en el botón  presiona Enter o clicka sobre el campo.
 3. Se mostrará el clima actual de la ciudad ingresada, incluyendo la temperatura, descripción del clima, temperatura mínima y máxima, y el fondo de la aplicación cambiará según la hora del día en la ubicación consultada.
 
 ## Tecnologías utilizadas
